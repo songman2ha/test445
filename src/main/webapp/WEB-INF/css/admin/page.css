@@ -1,0 +1,8 @@
+.pagination {margin: 40px 0 20px; text-align: center;}
+.page {display: inline-block; width: 25px; height: 25px; border: solid 1px #e7e7e7; font-size: 13px; color: #161616; line-height: 23px;}
+.page:hover {border: 1px solid #181818;}
+.page.active {background: #161616; color: #fff;}
+.page.first {margin-right: 10px; background: url(/images/admin/btn_page_l.png) 50% 50% no-repeat; text-indent: -9999px;}
+.page.last {margin-left: 10px; background: url(/images/admin/btn_page_r.png) 50% 50% no-repeat; text-indent: -9999px;}
+
+

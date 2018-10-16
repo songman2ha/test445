@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AdminLoginDAO">
+
+	<select id="actionLogin" parameterType="loginCommVO" resultType="loginCommVO">
+        SELECT
+            ADMIN_EMAIL
+            ,ADMIN_NAME
+            ,ADMIN_PHONE
+            ,REG_EMAIL
+            ,REG_DT
+            ,UPT_EMAIL
+            ,UPT_DT
+            ,UPT_IP
+        FROM
+        TB_ADMIN_INFO T1
+        WHERE T1.ADMIN_EMAIL = #{user_email}
+        AND T1.ADMIN_PASSWORD = #{user_pwd}
+	</select>
+	
+	<select id="getAdminId" parameterType="String" resultType="String">
+		SELECT
+			NVL(admin_email, '') AS admin_email
+		FROM TB_ADMIN_INFO
+		WHERE ADMIN_EMAIL = #{user_email}
+	</select>
+
+</mapper>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Converted at: Thu Aug 16 10:38:20 KST 2012-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="IpCheckDAO">
+	<select id="ipCheck" parameterType="String" resultType="int">
+		SELECT
+			COUNT(*)
+		FROM IPSHIELD
+		WHERE 1=1
+		AND IPINFO = #{ip}
+		AND USE_YN = 'Y'
+	</select>
+	
+	<select id="getIpPassList" parameterType="com.bitkrx.config.vo.CmeIpInfoVO" resultType="com.bitkrx.config.vo.CmeIpInfoVO">
+		SELECT
+			IPINFO									ipinfo,
+			IPDESC									ipdesc,
+			USE_YN									use_yn,
+			TO_CHAR(CREATE_DATE, 'YYYY-MM-DD') 		create_dt,
+			TO_CHAR(UPDATE_DATE, 'YYYY-MM-DD') 		update_dt,
+			CREATE_USER								create_user,
+			UPDATE_USER								update_user		
+		FROM
+			IPSHIELD
+		WHERE
+			USE_YN			=	'Y'
+	</select>
+</mapper>
